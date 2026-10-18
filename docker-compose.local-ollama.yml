@@ -1,0 +1,74 @@
+###############################################################################
+# Local demo overlay: runs Ollama in Docker, so no host Ollama installation is
+# required. Model weights persist in the named ollama_data volume.
+###############################################################################
+
+volumes:
+  # New isolated local Kafka data volume avoids reusing metadata from another
+  # Zookeeper cluster. Existing volumes are left untouched.
+  kafka_demo_data_local_ollama: {}
+  ollama_data: {}
+
+services:
+  api:
+    environment:
+      # Anonymous demo access is safe only while the API remains loopback-only.
+      AISOC_DEV_AUTH_BYPASS: "1"
+      AISOC_PUBLISHED_BIND_ADDRS: "127.0.0.1"
+
+  kafka:
+    volumes:
+      - kafka_demo_data_local_ollama:/var/lib/kafka/data
+
+  ollama:
+    image: ollama/ollama:0.6.7
+    container_name: aisoc-demo-ollama
+    ports:
+      - "127.0.0.1:11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - aisoc-demo
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  ollama-pull:
+    image: ollama/ollama:0.6.7
+    container_name: aisoc-demo-ollama-pull
+    depends_on:
+      ollama:
+        condition: service_healthy
+    entrypoint: ["ollama", "pull", "llama3.2:3b-instruct-q4_K_M"]
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - aisoc-demo
+    restart: "no"
+
+  agents:
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+      ollama-pull:
+        condition: service_completed_successfully
+    environment:
+      REALTIME_URL: http://realtime:4000
+      AISOC_AIRGAPPED: "true"
+      LLM_BASE_URL: "http://ollama:11434/v1"
+      LLM_API_KEY: "ollama"
+      LLM_MODEL: "llama3.2:3b-instruct-q4_K_M"
+      OPENAI_BASE_URL: "http://ollama:11434/v1"
+      OPENAI_MODEL: "llama3.2:3b-instruct-q4_K_M"
+      OPENAI_API_KEY: "ollama"
+      ANTHROPIC_API_KEY: ""
