@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="SecOps">
+  <rect width="512" height="512" rx="64" fill="#172033"/>
+  <path d="M256 76 414 148v120c0 91-66 147-158 184-92-37-158-93-158-184V148z" fill="none" stroke="#93b4e8" stroke-width="24" stroke-linejoin="round"/>
+  <path d="m178 262 52 52 106-118" fill="none" stroke="#e2e8f0" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

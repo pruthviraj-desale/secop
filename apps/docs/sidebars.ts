@@ -1,0 +1,110 @@
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
+
+const sidebars: SidebarsConfig = {
+  docsSidebar: [
+    {
+      type: "category",
+      label: "Getting Started",
+      items: ["intro", "quickstart", "architecture", "benchmark"],
+    },
+    {
+      type: "category",
+      label: "Core Concepts",
+      items: [
+        "concepts/capabilities",
+        "concepts/cases",
+        "concepts/playbooks",
+        "concepts/detections",
+      ],
+    },
+    {
+      type: "category",
+      label: "Features",
+      items: [
+        "features/connector-health",
+        "features/data-pipeline",
+        "features/attack-path-agent",
+      ],
+    },
+    {
+      type: "category",
+      label: "Architecture",
+      items: ["architecture/itsm-as-source-of-truth"],
+    },
+    {
+      type: "category",
+      label: "Connectors",
+      items: [
+        "connectors/index",
+        "connectors/api-coverage",
+        "connectors/universal-capture",
+        "connectors/azure-entra",
+        "connectors/azure-activity",
+        "connectors/azure-defender",
+        "connectors/gcp-cloud-audit",
+        "connectors/gcp-scc",
+        "connectors/m365-audit",
+        "connectors/google-workspace",
+        "connectors/cloudflare",
+        "connectors/github",
+        "connectors/tailscale",
+        "connectors/osctrl",
+        "connectors/fleetdm",
+        "connectors/osquery-extensions",
+      ],
+    },
+    {
+      type: "category",
+      label: "Detections",
+      items: ["detections/coverage"],
+    },
+    {
+      type: "category",
+      label: "Operations",
+      items: [
+        "operations/security",
+        "operations/credentials",
+        "operations/airgap",
+        "operations/air-gapped",
+        "operations/theming",
+        "operations/upgrades",
+        "operations/troubleshooting",
+        "operations/faq",
+        "operations/adoption-questions",
+      ],
+    },
+    {
+      type: "category",
+      label: "Plugin SDK",
+      items: [
+        "plugins/overview",
+        "plugins/python-sdk",
+        "plugins/go-sdk",
+        "plugins/publishing",
+      ],
+    },
+    {
+      type: "category",
+      label: "Integrations",
+      items: ["integrations/mcp"],
+    },
+    {
+      type: "category",
+      label: "API Reference",
+      items: ["api/rest", "api/graphql", "api/websocket"],
+    },
+    {
+      type: "category",
+      label: "Deployment",
+      items: ["deployment/docker", "deployment/kubernetes", "deployment/env-vars"],
+    },
+    {
+      type: "category",
+      label: "Contributing",
+      items: ["contributing/dev-setup", "contributing/guidelines"],
+    },
+    "glossary",
+  ],
+};
+
+export default sidebars;
