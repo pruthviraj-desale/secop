@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T08:10:55.068158+00:00",
+  "generated_at": "2026-10-20T12:00:21.731338+00:00",
   "dataset": "synthetic_incidents.json (200 cases, deterministic)",
   "suites": {
     "mitre_accuracy": {
@@ -7,7 +7,7 @@
       "value": 0.97,
       "target": 0.8,
       "passed": true,
-      "duration_ms": 8.1,
+      "duration_ms": 8.4,
       "details": {
         "incidents": 200,
         "correct": 194,
@@ -32,7 +32,7 @@
       "value": 0.753,
       "target": 0.7,
       "passed": true,
-      "duration_ms": 18.0,
+      "duration_ms": 18.1,
       "details": {
         "alerts_in": 1000,
         "incidents_out": 247,
@@ -65,7 +65,7 @@
       "value": 1.0,
       "target": 0.8,
       "passed": true,
-      "duration_ms": 3.1,
+      "duration_ms": 3.3,
       "details": {
         "incidents": 200,
         "criteria": {
@@ -90,7 +90,7 @@
       "value": 1.0,
       "target": 1.0,
       "passed": true,
-      "duration_ms": 15.3,
+      "duration_ms": 15.7,
       "details": {
         "hunts": 5,
         "positives_expected": 5,
@@ -112,7 +112,7 @@
       "value": 0.475,
       "target": 0.4,
       "passed": true,
-      "duration_ms": 10.0,
+      "duration_ms": 9.9,
       "details": {
         "incidents": 200,
         "correct": 95,
@@ -142,23 +142,23 @@
     },
     "confidence_calibration": {
       "metric": "investigation_brier_score",
-      "value": 0.0602,
+      "value": 0.0605,
       "target": 0.18,
       "passed": true,
-      "duration_ms": 12.5,
+      "duration_ms": 12.7,
       "details": {
         "lower_is_better": true,
-        "investigation_brier": 0.0602,
+        "investigation_brier": 0.0605,
         "investigation_brier_max": 0.18,
-        "investigation_ece": 0.1726,
+        "investigation_ece": 0.1732,
         "investigation_ece_max": 0.18,
         "triage_brier": 0.0623,
         "triage_brier_max": 0.2,
         "triage_ece": 0.1771,
         "triage_ece_max": 0.2,
-        "investigation_separation": 0.6548,
+        "investigation_separation": 0.6535,
         "triage_separation": 0.6458,
-        "mean_confidence_positive_investigation": 0.7048,
+        "mean_confidence_positive_investigation": 0.7035,
         "mean_confidence_benign_investigation": 0.05,
         "investigation_brier_pass": true,
         "investigation_ece_pass": true,
@@ -171,7 +171,7 @@
       "value": 1.0,
       "target": 1.0,
       "passed": true,
-      "duration_ms": 0.9,
+      "duration_ms": 1.1,
       "details": {
         "total_cases": 14,
         "passed_cases": 14,
@@ -183,7 +183,7 @@
       "value": 1.0,
       "target": 1.0,
       "passed": true,
-      "duration_ms": 2.3,
+      "duration_ms": 2.2,
       "details": {
         "total_cases": 6,
         "passed_cases": 6,
@@ -195,7 +195,7 @@
       "value": 0.735,
       "target": 0.5,
       "passed": true,
-      "duration_ms": 25.4,
+      "duration_ms": 25.1,
       "details": {
         "incidents": 200,
         "covered": 147,
